@@ -1,0 +1,30 @@
+# project-report-speech · 课题汇报讲稿写作 Skill
+
+根据课题汇报 PPT 撰写或修改配套的口头汇报讲稿（Word）。适用于结题汇报、开题汇报、会议报告、项目评审、学术答辩。
+
+## 特点
+
+- 严格按 PPT 顺序，一页一段，翻页对得上
+- 口语为主、讲得出口，同时保留 PPT 关键词作为记忆锚点
+- 数据用概数，方法描述不夸大
+- 结尾：一句总结 + 一句呼吁 + 致谢
+- 一键生成紧凑两页 Word（宋体五号、1.15 倍行距）
+
+## 使用
+
+1. 把 `SKILL.md` 加入你的 AI 助手技能库（Claude Skills、Notion AI Skills 等），或直接作为提示词使用。
+2. 上传 PPT（和旧讲稿，如有），让 AI “按这个 skill 写汇报讲稿”。
+3. 生成 Word：
+
+```bash
+pip install python-docx
+python3 scripts/build_speech_docx.py speech.json out.docx          # 紧凑两页版
+python3 scripts/build_speech_docx.py speech.json out.docx --normal # 宽松版
+```
+
+`speech.json` 格式：
+
+```json
+{"title": "XXX：汇报讲稿（约10分钟）",
+ "sections": [{"heading": "第1页｜封面", "paragraphs": ["各位专家、各位老师，大家好！……"]}]}
+```
